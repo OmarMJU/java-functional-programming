@@ -11,7 +11,38 @@ public class MathFunctions {
             }
         };
 
+
+        // -- Expression Lambda Example from interface ICalculable. --
+        ICalculable calculatorSum = (a, b) -> {
+            System.out.println("--> SUM: This an implementation from operation method. The result is " + (a + b) + " <--");
+        };
+        calculatorSum.operation(5, 6);
+
+        ICalculable calculatorRes = (a, b) -> {
+            System.out.println("--> RES: This an implementation from operation method. The result is " + (a - b) + " <--");
+        };
+        calculatorRes.operation(10, 4);
+
+        ICalculable calculatorMul = (a, b) -> {
+            System.out.println("--> MUL: This an implementation from operation method. The result is " + (a * b) + " <--");
+        };
+        calculatorMul.operation(5, 5);
+
+        ICalculable calculatorDiv = (a, b) -> {
+            System.out.println("--> DIV: This an implementation from operation method. The result is " + (a / b) + " <--");
+        };
+        calculatorDiv.operation(10, 2);
+
+
+
+        // -- Another example more complex from lambda functions. --
         int number = 5;
         System.out.println("The square of the number " + number + " is " + square.apply(5));
+
+        Function<Integer, Integer> myFunction = dataIn -> {
+            return dataIn * dataIn;
+        };
+
+        System.out.println(myFunction.apply(8));
     }
 }

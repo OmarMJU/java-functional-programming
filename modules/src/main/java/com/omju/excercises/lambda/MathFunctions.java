@@ -1,4 +1,4 @@
-package com.omju.excercises;
+package com.omju.excercises.lambda;
 
 import java.util.function.Function;
 

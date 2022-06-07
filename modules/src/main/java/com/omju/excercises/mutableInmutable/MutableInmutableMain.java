@@ -7,8 +7,8 @@ import java.util.List;
 public class MutableInmutableMain {
     public static void main(String[] args) {
         try {
-            /**
-             * Example 1 for a mutable object.
+            /*
+              Example 1 for a mutable object.
              */
             PersonMutable personMutable = new PersonMutable();
             personMutable.setFullName("Omar Juarez");
@@ -19,12 +19,12 @@ public class MutableInmutableMain {
             personMutable.setEmails(emails);
 
             // Clean all existent mails and add new mails.
-            System.out.println(personMutable.toString());
+            System.out.println(personMutable);
             badMethod(personMutable);
-            System.out.println(personMutable.toString());
+            System.out.println(personMutable);
 
-            /**
-             * Example 2 for a mutable object.
+            /*
+              Example 2 for a mutable object.
              */
             List<String> emails2 = new ArrayList<>();
             emails2.add("nanamavis@mail.com");
@@ -33,9 +33,23 @@ public class MutableInmutableMain {
             personMutable2.setFullName("Nany Zam");
             personMutable2.setId(98765);
 
-            System.out.println(personMutable2.toString());
+            System.out.println(personMutable2);
             badIntentionalMethod(personMutable2);
-            System.out.println(personMutable2.toString());
+            System.out.println(personMutable2);
+
+            /*
+            Example 3 for a mutable object.
+             */
+            List<String> emails3 = new ArrayList<>();
+            emails3.add("some_email@mail.com");
+
+            PersonMutable3 personMutable3 = new PersonMutable3(emails3);
+            personMutable3.setFullName("Some name");
+            personMutable3.setId(45698);
+
+            System.out.println(personMutable3);
+            badMutableFinalEmails(personMutable3);
+            System.out.println(personMutable3);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,5 +65,18 @@ public class MutableInmutableMain {
         List<String> emails = personMutable2.getEmails();
         emails.clear();
         emails.add("some_spammy_mail_2@mail.com");
+    }
+
+    private static void badMutableFinalEmails(PersonMutable3 personMutable3) {
+        List<String> spammyEmails = new ArrayList<>();
+        spammyEmails.add("spammy_email1@mail.com");
+        spammyEmails.add("spammy_email2@mail.com");
+        spammyEmails.add("spammy_email3@mail.com");
+        spammyEmails.add("spammy_email4@mail.com");
+
+        List<String> emails = personMutable3.getEmails();
+        emails.clear();
+
+        emails.addAll(spammyEmails);
     }
 }

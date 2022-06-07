@@ -50,6 +50,17 @@ public class MutableInmutableMain {
             System.out.println(personMutable3);
             badMutableFinalEmails(personMutable3);
             System.out.println(personMutable3);
+
+            /*
+            Example for a inmutable object.
+             */
+            List<String> emailsInmutable = new ArrayList<>();
+            emailsInmutable.add("some_inmutable_email@email.com");
+            PersonInmutable personInmutable = new PersonInmutable(95454, "Person Inmutable", emailsInmutable);
+
+            System.out.println(personInmutable);
+            badIntentionalMethodP2(personInmutable);
+            System.out.println(personInmutable);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -63,6 +74,12 @@ public class MutableInmutableMain {
 
     private static void badIntentionalMethod(PersonMutable2 personMutable2) {
         List<String> emails = personMutable2.getEmails();
+        emails.clear();
+        emails.add("some_spammy_mail_2@mail.com");
+    }
+
+    private static void badIntentionalMethodP2(PersonInmutable personInmutable2) {
+        List<String> emails = personInmutable2.getEmails();
         emails.clear();
         emails.add("some_spammy_mail_2@mail.com");
     }

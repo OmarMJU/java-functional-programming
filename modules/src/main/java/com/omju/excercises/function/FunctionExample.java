@@ -1,11 +1,13 @@
 package com.omju.excercises.function;
 
 import com.omju.excercises.mutableInmutable.PersonInmutable;
-
+import java.util.function.Function;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 
+/**
+ * Example class for a package Function.
+ */
 public class FunctionExample {
     public static void main(String[] args) {
         List<String> emails = new ArrayList<>();

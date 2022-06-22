@@ -4,6 +4,14 @@ import java.util.function.Consumer;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * References:
+ * https://www.geeksforgeeks.org/double-colon-operator-in-java/
+ * https://www.baeldung.com/java-8-double-colon-operator
+ * https://mkyong.com/java8/java-8-method-references-double-colon-operator/
+ * https://www.arquitecturajava.com/java-stream-map-y-estadisticas/
+ * https://mkyong.com/java8/java-8-streams-map-examples/
+ */
 public class ReferenceOperatorExample {
     public static void main(String[] args) {
         Students student1 = new Students(1, "Fulanito De Tal", 8.5, 1234567890);

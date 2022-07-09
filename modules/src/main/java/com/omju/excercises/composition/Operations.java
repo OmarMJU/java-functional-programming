@@ -7,6 +7,12 @@ import java.text.SimpleDateFormat;
 import java.util.Optional;
 import java.util.List;
 
+/**
+ * References:
+ * https://www.deadcoderising.com/2015-09-07-java-8-functional-composition-using-compose-and-andthen/
+ * https://jenkov.com/tutorials/java-functional-programming/functional-composition.html
+ * 
+ */
 public class Operations {
     public static void main(String[] args) {
         System.out.println("===== EXAMPLE 1 =====");

@@ -11,7 +11,6 @@ import java.util.List;
  * References:
  * https://www.deadcoderising.com/2015-09-07-java-8-functional-composition-using-compose-and-andthen/
  * https://jenkov.com/tutorials/java-functional-programming/functional-composition.html
- * 
  */
 public class Operations {
     public static void main(String[] args) {
@@ -64,6 +63,7 @@ public class Operations {
         System.out.println("The result is: " + operation3CloseDB.apply("jdbcTemplate:dbcDriver:omju:omju90/1234|select * from costumer with ur"));
 
         example3();
+        example4();
     }
 
     private static void example3() {
@@ -114,5 +114,14 @@ public class Operations {
             System.out.println("Error in the operation " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    private static void example4() {
+        System.out.println("\n\n===== EXAMPLE 4 =====");
+        Function<Integer, String> toStringEx = num -> num.toString();
+        BiFunction<Integer, Integer, Integer> doSomething = (dataA, dataB) -> dataA * dataB;
+
+        BiFunction<Integer, Integer, String> doIt = doSomething.andThen(toStringEx);
+        System.out.println("The result of datas 5 and 8 is " + doIt.apply(5, 8));
     }
 }

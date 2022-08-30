@@ -1,7 +1,7 @@
 package com.omju.excercises.streams;
 
-import java.util.Optional;
 import java.util.stream.Stream;
+import java.util.Optional;
 
 public class Streams {
     public static void main(String[] args) {
@@ -30,25 +30,10 @@ public class Streams {
         Employes employee8 = new Employes("Super Sonic", 12200);
 
         Stream<Employes> employees = Stream.of(employee1, employee2, employee3, employee4, employee5, employee6, employee7, employee8);
-        Stream<Employes> happyEmployees = happyEmployees(employees);
-        happyEmployees.forEach(employee -> System.out.println(employee.getName()));
-
-        Stream<Employes> middleHappyEmployees = middleHappyEmployees(employees); // <-- This action will throw an error because the stream has been processed.
-        middleHappyEmployees.forEach(employee -> System.out.println(employee.getName()));
-
-        Stream<Employes> unhappyEmployees = unhappyEmployees(employees);
-        unhappyEmployees.forEach(employee -> System.out.println(employee.getName()));
+        viewDatasStream(employees.filter(employee -> employee.getSalary() >= 30000)).forEach(System.out::println);
     }
 
-    private static Stream<Employes> happyEmployees(Stream<Employes> employees) {
-        return employees.filter(employee -> employee.getSalary() >= 30000);
-    }
-
-    private static Stream<Employes> middleHappyEmployees(Stream<Employes> employees) {
-        return employees.filter(employee -> employee.getSalary() < 30000 && employee.getSalary() >= 20000);
-    }
-
-    private static Stream<Employes> unhappyEmployees(Stream<Employes> employees) {
-        return employees.filter(employee -> employee.getSalary() > 20000);
+    private static <T> Stream<T> viewDatasStream(Stream<T> stream) {
+        return stream.peek(data -> System.out.println("Data: " + data));
     }
 }

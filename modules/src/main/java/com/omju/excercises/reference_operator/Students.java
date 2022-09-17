@@ -10,9 +10,9 @@ public class Students {
     private final  int id;
     private String name;
     private final double note;
-    private final int telephoneNumber;
+    private final String telephoneNumber;
 
-    public Students(int id, String name, double note, int telephoneNumber) {
+    public Students(int id, String name, double note, String telephoneNumber) {
         this.id = id;
         this.name = name;
         this.note = note;
